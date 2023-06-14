@@ -20,10 +20,20 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <200>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
+        };
+        th: thumbrow_taps {
+            label = "thumbrow_ht";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping_term_ms = <150>;
+            quick_tap_ms = <250>;
+            global-quick-tap;
+            bindings = <&mo>, <&kp>;
         };
     };
 
@@ -50,7 +60,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &ht 4 TAB  &ht 1 SPACE     &ht 2 ENTER  &ht 5 BSPC
+                                            &th 4 TAB  &th 1 SPACE     &th 2 ENTER  &th 5 BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -72,7 +82,7 @@
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
-
+        
 
         // - 2
         raise_layer {
