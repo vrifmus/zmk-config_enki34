@@ -25,6 +25,16 @@
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+        th: thumbrow_taps {
+            label = "thumbrow_ht";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping_term_ms = <150>;
+            quick_tap_ms = <250>;
+            global-quick-tap;
+            bindings = <&mo>, <&kp>;
+        };
     };
 
     conditional_layers {
@@ -50,7 +60,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                            &kp TAB   &lt 1 SPACE     &kp ENTER  &lt 2 BSPC
+                                            &th 4 TAB  &th 1 SPACE     &th 2 ENTER  &th 5 BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -84,8 +94,8 @@
         //│  1       │  2       │  3       │  4       │  5       │   │  6       │  7       │  8       │  9       │  0       │
             &kp N1     &kp N2     &kp 3      &kp N4     &kp N5         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │          │          │          │          │
-           &trans      &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &trans
+        //│ APP      │          │          │          │          │   │          │          │          │          │ K_APP    │
+            &kp K_APP  &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &kp K_APP
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -116,8 +126,8 @@
         extra_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ TERMINAL │          │          │          │          │   │          │ PG_UP    │ UP       │ PG_DOWN  │ S_LCOK   │
-            TERM       &trans     &trans     &trans     &trans         &trans     &kp PG_UP  &kp UP     &kp PG_DN  &kp SLCK
+        //│ TERMINAL │ DESK <   │ TASK VIEW│ DESK >   │          │   │          │ PG_UP    │ UP       │ PG_DOWN  │ S_LCOK   │
+            TERM       DESK_P     TASK_V     DESK_N     &trans         &trans     &kp PG_UP  &kp UP     &kp PG_DN  &kp SLCK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ GUI      │ ALT      │ CTRL     │ SHIFT    │          │   │ PRNT SCR │ LEFT     │ DOWN     │ RIGHT    │ C_LOCK   │
             &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &trans         &kp PSCRN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp CLCK
@@ -125,7 +135,7 @@
         //│          │          │          │          │          │   │          │ HOME     │ INSERT   │ END      │ N_LOCK   │
             &trans     &trans     &trans     &trans     &trans         &trans     &kp HOME   &kp INS    &kp END    &kp KP_NLCK
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &trans     &trans         &kp ESC    &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
