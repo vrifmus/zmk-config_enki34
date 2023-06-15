@@ -86,14 +86,14 @@
         raise_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │          │          │          │          │   │          │          │          │          │          │
-            &trans     &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &trans
+        //│  `       │  [       │  {       │  (       │          │   │          │  )       │  }       │  ]       │  ~       │
+            &kp GRAVE  &kp LBKT   &kp LBRC   &kp LPAR   &trans         &trans     &kp RPAR   &kp RBRC   &kp RBKT   &kp TILDE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  1       │  2       │  3       │  4       │  5       │   │  6       │  7       │  8       │  9       │  0       │
             &kp N1     &kp N2     &kp N3     &kp N4     &kp N5         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ APP      │          │          │          │          │   │          │          │          │          │ K_APP    │
-            &kp K_APP  &trans     &trans     &trans     &trans         &trans     &trans     &trans     &trans     &kp K_APP
+        //│ APP      │  -       │  _       │  '       │          │   │          │  "       │  =       │  +       │ APP      │
+            &kp K_APP  &kp MINUS  &kp UNDER  &kp SQT    &trans         &trans     &kp DQT    &kp EQUAL  &kp PLUS   &kp K_APP
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -124,8 +124,8 @@
         extra_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ ESC      │ DESK <   │ TASK VIEW│ DESK >   │ TERMINAL │   │          │ PG_UP    │ UP       │ PG_DOWN  │ S_LCOK   │
-            &kp ESC    DESK_P     TASK_V     DESK_N     TERM           &trans     &kp PG_UP  &kp UP     &kp PG_DN  &kp SLCK
+        //│ ESC      │ DESK <   │ TERMINAL │ DESK >   │ TASK VIEW│   │          │ PG_UP    │ UP       │ PG_DOWN  │ S_LCOK   │
+            &kp ESC    DESK_P     TERM       DESK_N     TASK_V         &trans     &kp PG_UP  &kp UP     &kp PG_DN  &kp SLCK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ GUI      │ ALT      │ CTRL     │ SHIFT    │          │   │ PRNT SCR │ LEFT     │ DOWN     │ RIGHT    │ C_LOCK   │
             &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &trans         &kp PSCRN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp CLCK
