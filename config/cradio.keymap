@@ -71,11 +71,11 @@
         //│  `       │  [       │  {       │  (       │  <       │   │  >       │  )       │  }       │  ]       │  ~       │
             &kp GRAVE  &kp LBKT   &kp LBRC   &kp LPAR   &kp LT         &kp GT     &kp RPAR   &kp RBRC   &kp RBKT   &kp TILDE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  !       │  @       │  #       │  $       │  %       │   │  ^       │  &       │  *       │  │       │  :       │
-            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp CARET  &kp AMPS   &kp ASTRK  &kp PIPE   &kp COLON
+        //│  !       │  @       │  #       │  $       │  %       │   │  ^       │  &       │  *       │  \       │  │       │
+            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp CARET  &kp AMPS   &kp ASTRK  &kp BSLH   &kp PIPE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  '       │  -       │  _       │  ,       │  /       │   │  \       │  .       │  =       │  +       │  "       │
-            &kp SQT    &kp MINUS  &kp UNDER  &kp COMMA  &kp KP_SLASH   &kp BSLH   &kp DOT    &kp EQUAL  &kp PLUS   &kp DQT   
+        //│  '       │  -       │  _       │  ,       │          │   │          │  .       │  =       │  +       │  "       │
+            &kp SQT    &kp MINUS  &kp UNDER  &kp COMMA  &trans         &trans     &kp DOT    &kp EQUAL  &kp PLUS   &kp DQT   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
