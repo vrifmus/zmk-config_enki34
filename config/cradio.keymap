@@ -77,7 +77,7 @@
         //│  '       │  -       │  _       │  ,       │  /       │   │  \       │  .       │  =       │  +       │  "       │
             &kp SQT    &kp MINUS  &kp UNDER  &kp COMMA  &kp KP_SLASH   &kp BSLH   &kp DOT    &kp EQUAL  &kp PLUS   &kp DQT   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &kp SPACE  &trans
+                                             &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
