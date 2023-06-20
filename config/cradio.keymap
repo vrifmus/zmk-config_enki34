@@ -31,14 +31,14 @@
             flavor = "tap-preferred";
             tapping_term_ms = <150>;
             quick_tap_ms = <250>;
-            bindings = <&lt>, <&kp>;
+            bindings = <&mo>, <&kp>;
         };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <4 5>;
+            if-layers = <1 2>;
             then-layer = <3>;
         };
     };
