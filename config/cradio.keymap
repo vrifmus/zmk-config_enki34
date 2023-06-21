@@ -37,8 +37,8 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <4 5>;
+        adjust_layer {
+            if-layers = <1 2>;
             then-layer = <3>;
         };
     };
@@ -77,7 +77,7 @@
         //│  '       │  -       │  _       │  ;       │  ,       │   │  .       │  :       │  =       │  +       │  "       │
             &kp SQT    &kp MINUS  &kp UNDER  &kp SEMI   &kp COMMA      &kp DOT    &kp COLON  &kp EQUAL  &kp PLUS   &kp DQT   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans        &th 3 ENTER &trans
+                                             &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -95,7 +95,7 @@
         //│  '       │  -       │  _       │  ;       │  ,       │   │  .       │  :       │  =       │  +       │  "       │
             &kp SQT    &kp MINUS  &kp UNDER  &kp SEMI   &kp COMMA      &kp DOT    &kp COLON  &kp EQUAL  &kp PLUS   &kp DQT   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &th 3 SPACE    &trans     &trans
+                                             &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
