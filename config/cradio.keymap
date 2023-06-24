@@ -128,8 +128,8 @@
         //│ GUI      │ ALT      │ CTRL     │ SHIFT    │ APP      │   │ APP      │ LEFT     │ DOWN     │ RIGHT    │ C_LOCK   │
             &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp K_APP      &kp K_APP  &kp LEFT   &kp DOWN   &kp RIGHT  &kp CLCK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ BACKSPACE│ DEL      │ INSERT   │ ENTER    │          │   │          │ HOME     │ INSERT   │ END      │ N_LOCK   │
-            &kp BSPC   &kp DEL    &kp INS    &kp ENTER  &trans         &trans     &kp HOME   &kp INS    &kp END    &kp KP_NLCK
+        //│ DEL      │ BACKSPACE│ INSERT   │ ENTER    │          │   │          │ HOME     │ INSERT   │ END      │ N_LOCK   │
+            &kp DEL    &kp BSPC   &kp INS    &kp ENTER  &trans         &trans     &kp HOME   &kp INS    &kp END    &kp KP_NLCK
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
