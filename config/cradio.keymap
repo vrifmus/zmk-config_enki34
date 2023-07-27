@@ -54,9 +54,13 @@
         compatible = "zmk,combos";
         //
         COMBO(escape,    &kp ESC,  0  1 )
-        COMBO(backspace, &kp BSPC, 11 12)
-        COMBO(delete,    &kp DEL,  12 13)
-        COMBO(enter,     &kp RET,  13 14)
+        COMBO(backspace, &kp BSPC, 10 11)
+        COMBO(delete,    &kp DEL,  11 12)
+        COMBO(enter,     &kp RET,  12 13)
+        COMBO(terminal,  TERM,     0  3)
+        COMBO(taskview,  TASK_V,   1  2  3)
+        COMBO(deskprev,  DESK_P,   1  2)
+        COMBO(desknext,  DESK_N,   2  3)
     };
 
     keymap {
