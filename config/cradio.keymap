@@ -61,11 +61,11 @@
     combos {
         compatible = "zmk,combos";
         //
-        COMBO(delete,       &kp DEL,          10 11)
-        COMBO(backspace,    &kp BSPC,         11 12)
-        COMBO(enter,        &kp RET,          12 13)
-        EXTRA_COMBO(taskv,  &kp TASK_V,        2  3)
-        EXTRA_COMBO(goup,   &kp LALT(&kp UP), 22 23)
+        COMBO(delete,        &kp DEL,         10 11)
+        COMBO(backspace,     &kp BSPC,        11 12)
+        COMBO(enter,         &kp RET,         12 13)
+        EXTRA_COMBO(taskv,   &kp TASK_V,       2  3)
+        EXTRA_COMBO(goup,    &kp LALT(UP),    22 23)
     };
 
     keymap {
