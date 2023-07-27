@@ -57,7 +57,7 @@
         COMBO(backspace, &kp BSPC, 11 12)
         COMBO(delete,    &kp DEL,  12 13)
         COMBO(enter,     &kp RET,  13 14)
-    }
+    };
 
     keymap {
         compatible = "zmk,keymap";
