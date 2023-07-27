@@ -5,13 +5,20 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// Home row mods macro
 #define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &ht LCTRL k3  &ht LSHFT k4
 #define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &ht RCTRL k2  &ht RALT k3  &ht RGUI k4
 #define TERM &kp LC(GRAVE)
 #define TASK_V &kp LG(TAB)
 #define DESK_P &kp LG(LC(LEFT))
 #define DESK_N &kp LG(LC(RIGHT))
+
+#define COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <0>; \
+  };
 
 / {
     behaviors {
@@ -42,6 +49,15 @@
             then-layer = <3>;
         };
     };
+
+    combos {
+        compatible = "zmk,combos";
+        //
+        COMBO(escape,    &kp ESC,  0  1 )
+        COMBO(backspace, &kp BSPC, 11 12)
+        COMBO(delete,    &kp DEL,  12 13)
+        COMBO(enter,     &kp RET,  13 14)
+    }
 
     keymap {
         compatible = "zmk,keymap";
@@ -86,14 +102,14 @@
         raise_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  `       │  [       │  {       │  (       │  <       │   │  >       │  )       │  }       │  ]       │  ~       │
-            &kp GRAVE  &kp LBKT   &kp LBRC   &kp LPAR   &kp LT         &kp GT     &kp RPAR   &kp RBRC   &kp RBKT   &kp TILDE
+        //│  `       │  [       │  {       │  (       │          │   │          │  )       │  }       │  ]       │  ~       │
+            &kp GRAVE  &kp LBKT   &kp LBRC   &kp LPAR   &trans         &trans     &kp RPAR   &kp RBRC   &kp RBKT   &kp TILDE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  !       │  @       │  #       │  $       │  %       │   │  ^       │  &       │  *       │  \       │  |       │
-            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp CARET  &kp AMPS   &kp ASTRK  &kp BSLH   &kp PIPE
+        //│  !       │  @       │  #       │  $       │          │   │          │  &       │  *       │  \       │  |       │
+            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &trans         &trans     &kp AMPS   &kp ASTRK  &kp BSLH   &kp PIPE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  '       │  -       │  _       │  ;       │  ,       │   │  .       │  :       │  =       │  +       │  "       │
-            &kp SQT    &kp MINUS  &kp UNDER  &kp SEMI   &kp COMMA      &kp DOT    &kp COLON  &kp EQUAL  &kp PLUS   &kp DQT   
+        //│  '       │  -       │  _       │  %       │          │   │          │  ^       │  =       │  +       │  "       │
+            &kp SQT    &kp MINUS  &kp UNDER  &kp PRCNT  &trans         &trans     &kp CARET  &kp EQUAL  &kp PLUS   &kp DQT   
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -104,7 +120,7 @@
         adjust_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
+        //│  RESET   │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
            &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
@@ -128,9 +144,9 @@
         //│ GUI      │ ALT      │ CTRL     │ SHIFT    │ APP      │   │ APP      │ LEFT     │ DOWN     │ RIGHT    │ C_LOCK   │
             &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp K_APP      &kp K_APP  &kp LEFT   &kp DOWN   &kp RIGHT  &kp CLCK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ DEL      │ BACKSPACE│ INSERT   │ ENTER    │          │   │          │ HOME     │ INSERT   │ END      │ N_LOCK   │
+        //│ DEL      │ BACKSPACE│          │ ENTER    │          │   │          │ HOME     │ INSERT   │ END      │ N_LOCK   │
             &kp DEL    &kp BSPC   &kp INS    &kp ENTER  &trans         &trans     &kp HOME   &kp INS    &kp END    &kp KP_NLCK
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├─ ─────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
