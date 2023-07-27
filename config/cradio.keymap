@@ -20,6 +20,14 @@
     layers = <0>; \
   };
 
+#define EXTRA_COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <4>; \
+  };
+
 / {
     behaviors {
         ht: hold_tap {
@@ -53,14 +61,11 @@
     combos {
         compatible = "zmk,combos";
         //
-        COMBO(escape,    &kp ESC,  0  1 )
-        COMBO(backspace, &kp BSPC, 10 11)
-        COMBO(delete,    &kp DEL,  11 12)
-        COMBO(enter,     &kp RET,  12 13)
-        COMBO(terminal,  TERM,     0  3)
-        COMBO(taskview,  TASK_V,   1  2  3)
-        COMBO(deskprev,  DESK_P,   1  2)
-        COMBO(desknext,  DESK_N,   2  3)
+        COMBO(delete,       &kp DEL,          10 11)
+        COMBO(backspace,    &kp BSPC,         11 12)
+        COMBO(enter,        &kp RET,          12 13)
+        EXTRA_COMBO(taskv,  &kp TASK_V,        2  3)
+        EXTRA_COMBO(goup,   &kp LALT(&kp UP), 22 23)
     };
 
     keymap {
@@ -142,14 +147,14 @@
         extra_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ ESC      │ TERMIANL │ DESK <   │ DESK >   │ TASK VIEW│   │ PRNT SCR │ PG_UP    │ UP       │ PG_DOWN  │ S_LCOK   │
-            &kp ESC    TERM       DESK_P     DESK_N     TASK_V         &kp PSCRN  &kp PG_UP  &kp UP     &kp PG_DN  &kp SLCK
+        //│ ESC      │ TERMIANL │ DESK <   │ DESK >   │          │   │ PRNT SCR │ PG_UP    │ UP       │ PG_DOWN  │ S_LCOK   │
+            &kp ESC    TERM       DESK_P     DESK_N     &trans         &kp PSCRN  &kp PG_UP  &kp UP     &kp PG_DN  &kp SLCK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ GUI      │ ALT      │ CTRL     │ SHIFT    │ APP      │   │ APP      │ LEFT     │ DOWN     │ RIGHT    │ C_LOCK   │
             &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp K_APP      &kp K_APP  &kp LEFT   &kp DOWN   &kp RIGHT  &kp CLCK
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ DEL      │ BACKSPACE│          │ ENTER    │          │   │          │ HOME     │ INSERT   │ END      │ N_LOCK   │
-            &kp DEL    &kp BSPC   &kp INS    &kp ENTER  &trans         &trans     &kp HOME   &kp INS    &kp END    &kp KP_NLCK
+        //│          │          │ BACK     │ FORWARD  │          │   │          │ HOME     │ INSERT   │ END      │ N_LOCK   │
+            &trans     &trans     &kp K_BACK &kp K_FORWARD &trans      &trans     &kp HOME   &kp INS    &kp END    &kp KP_NLCK
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├─ ─────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
